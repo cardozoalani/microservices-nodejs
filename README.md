@@ -88,6 +88,17 @@ Select File > Save to save your changes.
 
 # Common Commands within k8s
 ## Adding secrets to kubernetes
+
+## Necessary secrets: 
+```bash
+  jwt-key-chall <-- secret of jsonWebToken
+  mongo-username-msusers-secret <-- userame of cluseter mongodb 
+  mongo-password-msusers-secret <-- password of cluseter mongodb 
+  access-key-id-aws <-- Access key ID of aws s3
+  bucket-name-aws <-- Name of bucket of aws s3
+  secret-access-key-aws <-- Secret access key of aws s3
+  namespace-aws <-- Namespace of aws s3
+```
 ```bash
   kubectl create secret generic secret-name --from-literal MY_SECRET_KEY=apisecretkeyyouwanttoaddtofile
 ```
