@@ -1,0 +1,20 @@
+name: deploy-files
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "files/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd files && docker build -t cardozoalani/files .
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push cardozoalani/files
