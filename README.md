@@ -86,12 +86,12 @@ Select File > Save to save your changes.
 
 [Install skaffold](https://skaffold.dev/docs/install/)
 
-## Common Commands within k8s
-# Adding secrets to kubernetes
+# Common Commands within k8s
+## Adding secrets to kubernetes
 ```bash
   kubectl create secret generic secret-name --from-literal MY_SECRET_KEY=apisecretkeyyouwanttoaddtofile
 ```
-# List existing secrets
+## List existing secrets
 ```bash
   kubectl get secrets
 ```
