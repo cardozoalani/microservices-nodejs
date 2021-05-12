@@ -12,4 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        env:
+          IAM_USER_KEY: ${{ secrets.IAM_USER_KEY }}
+          IAM_USER_SECRET: ${{ secrets.IAM_USER_SECRET }}
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+          NAMESPACE: ${{ secrets.NAMESPACE }}
       - run:  cd files && npm install && npm run test
