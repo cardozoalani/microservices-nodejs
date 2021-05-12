@@ -91,13 +91,13 @@ Select File > Save to save your changes.
 
 ## Necessary secrets: 
 ```bash
-  jwt-key-chall <-- secret of jsonWebToken
-  mongo-username-msusers-secret <-- userame of cluseter mongodb 
-  mongo-password-msusers-secret <-- password of cluseter mongodb 
-  access-key-id-aws <-- Access key ID of aws s3
-  bucket-name-aws <-- Name of bucket of aws s3
-  secret-access-key-aws <-- Secret access key of aws s3
-  namespace-aws <-- Namespace of aws s3
+  secret: jwt-key-chall constant: JWT_KEY <-- secret of jsonWebToken
+  secret: mongo-username-msusers-secret constant: MONGO_USERNAME<-- userame of cluseter mongodb 
+  secret: mongo-password-msusers-secret constant: MONGO_PASSWORD<-- password of cluseter mongodb 
+  secret: access-key-id-aws constant: IAM_USER_KEY<-- Access key ID of aws s3
+  secret: bucket-name-aws constant: IAM_USER_SECRET<-- Name of bucket of aws s3
+  secret: secret-access-key-aws constant: BUCKET_NAME<-- Secret access key of aws s3
+  secret: namespace-aws constant: NAMESPACE<-- Namespace of aws s3
 ```
 ```bash
   kubectl create secret generic secret-name --from-literal MY_SECRET_KEY=apisecretkeyyouwanttoaddtofile
