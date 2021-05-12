@@ -12,18 +12,15 @@ spec:
       labels:
         app: auth
     spec:
-      volumes:
-        - name: secret-volume
-          secret:
-            secretName: jwt-private
       containers:
         - name: auth
           image: cardozoalani/auth
-          volumeMounts:
-            - name: secret-volume
-              readOnly: false
-              mountPath: "/app/src/key/secret-volume"
           env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-key-chall
+                  key: JWT_KEY
             - name: MONGO_USERNAME
               valueFrom:
                 secretKeyRef:

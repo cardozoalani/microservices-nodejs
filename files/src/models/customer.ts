@@ -25,36 +25,46 @@ interface CustomerDoc extends mongoose.Document {
   clientId?: number
 }
 
-const customerSchema = new mongoose.Schema<CustomerDoc, CustomerModel>({
-  name: {
-    type: String,
-    require: true
+const customerSchema = new mongoose.Schema<CustomerDoc, CustomerModel>(
+  {
+    name: {
+      type: String,
+      require: true
+    },
+    segment1: {
+      type: Boolean,
+      require: true
+    },
+    segment2: {
+      type: Boolean,
+      require: true
+    },
+    segment3: {
+      type: Boolean,
+      require: true
+    },
+    segment4: {
+      type: Boolean,
+      require: true
+    },
+    platformId: {
+      type: Number,
+      require: true
+    },
+    clientId: {
+      type: Number,
+      require: true
+    }
   },
-  segment1: {
-    type: Boolean,
-    require: true
-  },
-  segment2: {
-    type: Boolean,
-    require: true
-  },
-  segment3: {
-    type: Boolean,
-    require: true
-  },
-  segment4: {
-    type: Boolean,
-    require: true
-  },
-  platformId: {
-    type: Number,
-    require: true
-  },
-  clientId: {
-    type: Number,
-    require: true
+  {
+    toJSON: {
+      transform(doc, ret) {
+        ret._id
+        delete ret.__v
+      }
+    }
   }
-})
+)
 
 customerSchema.statics.build = (atts: CustomerAttrs) => {
   return new Customer(atts)

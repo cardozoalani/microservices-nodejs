@@ -14,6 +14,7 @@ export default async (req: Request, res: Response) => {
   if (!req.files || req.files.length === 0) {
     throw new BadRequestError('Please send a file')
   }
+
   //@ts-ignore
   const fileLocation = req.files.map((data: File) => data.location)[0]
   //@ts-ignore
@@ -29,15 +30,14 @@ export default async (req: Request, res: Response) => {
         createdBy: req.session
       })
       await file.save()
-      res.status(200).send(file)
     }
     existFile?.set({
       url: fileLocation,
       createdBy: req.session
     })
     await existFile?.save()
-    res.status(200).send(existFile)
+    res.status(201).send({ name: fileNameOriginal, url: fileLocation })
   } catch (error) {
-    throw new BadRequestError('An error occurred while loading the file')
+    console.error(error)
   }
 }

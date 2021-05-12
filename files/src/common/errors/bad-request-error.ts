@@ -1,7 +1,7 @@
 import { CustomError } from './custom-error'
 
 export class BadRequestError extends CustomError {
-  statusCode = 400
+  statusCode = 401
   constructor(public message: string) {
     super(message)
 

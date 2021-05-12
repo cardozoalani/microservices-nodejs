@@ -7,7 +7,7 @@ import fs from 'fs'
 import path from 'path'
 import { json } from 'body-parser'
 import routes from './routes'
-
+import { errorHandler, NotFoundError } from './common'
 const app = express()
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
   flags: 'a'
@@ -28,5 +28,9 @@ app.use('/api/v1/files', routes.uploadRouter)
 app.get('/api/v1/files', async (req: Request, res: Response) => {
   res.json({ status: 'success', message: 'Welcome to files service' })
 })
+app.all('*', async (req: Request, res: Response) => {
+  throw new NotFoundError()
+})
 
+app.use(errorHandler)
 export { app }
