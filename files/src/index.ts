@@ -3,7 +3,7 @@ import { app } from './app'
 
 const start = async () => {
   if (!process.env.MONGO_USERNAME) {
-    throw new Error('MONGO_USERNAME must be defined ')
+    throw new Error('MONGO_USERNAME must be defined')
   }
   if (!process.env.MONGO_PASSWORD) {
     throw new Error('MONGO_PASSWORD must be defined')
