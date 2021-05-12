@@ -38,4 +38,17 @@ describe('auth', () => {
     })
     expect(response).to.have.status(400)
   })
+
+  it('login success', async () => {
+    const user = await chai.request(app).post('/api/v1/auth/signup').send({
+      username: 'username',
+      password: 'password'
+    })
+    expect(user).to.have.status(201)
+    const response = await chai.request(app).post('/api/v1/auth/login').send({
+      username: 'username',
+      password: 'password'
+    })
+    expect(response).to.have.status(200)
+  })
 })

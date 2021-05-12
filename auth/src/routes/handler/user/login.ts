@@ -3,10 +3,6 @@ import { User } from '../../../models/user'
 import jwt from 'jsonwebtoken'
 import { Password } from '../../../services/encryptPassword'
 import { BadRequestError } from '../../../common'
-import fs from 'fs'
-import path from 'path'
-
-const privateKey = fs.readFileSync(path.join(__dirname, '../../../key/secret-volume/auth0-key.pem'))
 
 export default async (req: Request, res: Response) => {
   const { username, password } = req.body
@@ -27,8 +23,7 @@ export default async (req: Request, res: Response) => {
       id: existUser._id,
       username: existUser.username
     },
-    privateKey,
-    { algorithm: 'RS256' }
+    process.env.JWT_KEY!
   )
 
   req.session = {

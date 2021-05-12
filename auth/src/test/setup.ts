@@ -1,8 +1,6 @@
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import mongoose from 'mongoose'
 import sinon from 'sinon'
-import fs from 'fs'
-import path from 'path'
 mongoose.set('useCreateIndex', true)
 
 let mongo: any
