@@ -1,0 +1,15 @@
+name: tests-files
+
+on:
+  pull_request:
+    paths:
+      - 'files/**'
+
+
+jobs:
+  biuld:
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run:  cd files && npm install && npm run test
