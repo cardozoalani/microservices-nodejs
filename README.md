@@ -95,8 +95,8 @@ Select File > Save to save your changes.
   secret: mongo-username-msusers-secret | constant: MONGO_USERNAME <-- userame of cluseter mongodb 
   secret: mongo-password-msusers-secret | constant: MONGO_PASSWORD <-- password of cluseter mongodb 
   secret: access-key-id-aws | constant: IAM_USER_KEY <-- Access key ID of aws s3
-  secret: bucket-name-aws | constant: IAM_USER_SECRET <-- Name of bucket of aws s3
-  secret: secret-access-key-aws | constant: BUCKET_NAME <-- Secret access key of aws s3
+  secret: secret-access-key-aws | constant: IAM_USER_SECRET<-- Secret access key of aws s3
+  secret: bucket-name-aws | constant: BUCKET_NAME<-- Name of bucket of aws s3
   secret: namespace-aws | constant: NAMESPACE <-- Namespace of aws s3
 ```
 ```bash
