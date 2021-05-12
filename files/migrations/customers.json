@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Ricardo",
+    "segment1": true,
+    "segment2": false,
+    "segment3": false,
+    "segment4": true,
+    "platformId": 1,
+    "clientId": 2
+  },
+  {
+    "name": "Romina",
+    "segment1": true,
+    "segment2": true,
+    "segment3": true,
+    "segment4": true,
+    "platformId": 2,
+    "clientId": 3
+  },
+  {
+    "name": "Joaquin",
+    "segment1": false,
+    "segment2": false,
+    "segment3": false,
+    "segment4": true,
+    "platformId": 4,
+    "clientId": 4
+  },
+  {
+    "name": "Lucia",
+    "segment1": false,
+    "segment2": false,
+    "segment3": true,
+    "segment4": true,
+    "platformId": 10,
+    "clientId": 1
+  },
+  {
+    "name": "Alejandro",
+    "segment1": true,
+    "segment2": false,
+    "segment3": false,
+    "segment4": true,
+    "platformId": 1,
+    "clientId": 3
+  },
+  {
+    "name": "Alicia",
+    "segment1": true,
+    "segment2": true,
+    "segment3": true,
+    "segment4": true,
+    "platformId": 5,
+    "clientId": 3
+  },
+  {
+    "name": "Joaquin",
+    "segment1": false,
+    "segment2": false,
+    "segment3": true,
+    "segment4": false,
+    "platformId": 5,
+    "clientId": 4
+  },
+  {
+    "name": "Lucia",
+    "segment1": true,
+    "segment2": true,
+    "segment3": true,
+    "segment4": true,
+    "platformId": 10,
+    "clientId": 1
+  }
+]
