@@ -1,0 +1,9 @@
+name,segment1,segment2,segment3,segment4,platformId,clientId
+Ricardo,true,false,false,true,1,2
+Romina,true,true,true,true,2,3
+Joaquin,false,false,false,true,4,4
+Lucia,false,false,true,true,10,1
+Alejandro,true,false,false,true,1,3
+Alicia,true,true,true,true,5,3
+Joaquin,false,false,true,false,5,4
+Lucia,true,true,true,true,10,1
