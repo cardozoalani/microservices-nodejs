@@ -3,7 +3,7 @@ import { app } from './app'
 
 const start = async () => {
   if (!process.env.JWT_KEY) {
-    throw new Error('JWT_KEY must be defined ')
+    throw new Error('JWT_KEY must be defined')
   }
   if (!process.env.MONGO_USERNAME) {
     throw new Error('MONGO_USERNAME must be defined')

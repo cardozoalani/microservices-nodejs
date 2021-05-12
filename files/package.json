@@ -7,6 +7,11 @@
     "start": "ts-node-dev --respawn --transpile-only src/index.ts",
     "test": "BUCKET_NAME=files-workana mocha  -r ts-node/register src/**/*.spec.ts --file ./src/test/setup.ts --timeout 10000 --exit"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test"
+    }
+  },
   "author": "Alan Isaac Cardozo",
   "license": "ISC",
   "dependencies": {
