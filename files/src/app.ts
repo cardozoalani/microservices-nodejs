@@ -8,6 +8,8 @@ import path from 'path'
 import { json } from 'body-parser'
 import routes from './routes'
 import { errorHandler, NotFoundError } from './common'
+const swaggerUi = require('swagger-ui-express'),
+  swaggerDocument = require('./swagger.json')
 const app = express()
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
   flags: 'a'
@@ -23,6 +25,7 @@ app.use(
     stream: accessLogStream
   })
 )
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/api/v1/files', routes.showCustomers)
 app.use('/api/v1/files', routes.uploadRouter)
 app.get('/api/v1/files', async (req: Request, res: Response) => {

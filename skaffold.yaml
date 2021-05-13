@@ -3,13 +3,12 @@ kind: Config
 deploy:
   kubectl:
     manifests:
-      - ./infra/k8s/*
       - ./infra/k8s-dev/*
 build:
   local:
     push: false
   artifacts:
-    - image: cardozoalani/auth
+    - image: cardozoalan/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -17,7 +16,7 @@ build:
         infer:
           - "**/*.ts"
           - "**/*.tsx"
-    - image: cardozoalani/files
+    - image: cardozoalan/files
       context: files
       docker:
         dockerfile: Dockerfile

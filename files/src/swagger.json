@@ -1,0 +1,444 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server with serices of CRUD records and auth with OAuth 2.0 system",
+    "version": "1.0.0",
+    "title": "Swagger ",
+    "termsOfService": "",
+    "contact": {
+      "email": "cardozoalani@hotmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "intree.com.ar",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "auth",
+      "description": "Operations about auth",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": "http://swagger.io"
+      }
+    },
+    {
+      "name": "files",
+      "description": "Access to data"
+    }
+  ],
+  "schemes": ["https"],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Create auth",
+        "description": "This can only be done by the logged in auth.",
+        "operationId": "createUser",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Logs auth into the system",
+        "description": "",
+        "operationId": "loginUser",
+        "produces": ["application/xml", "application/json"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "body",
+            "description": "The auth name for login",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "description": "The password for login in clear text",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "apiKey",
+                  "default": "eyJhbGciOi..."
+                }
+              }
+            },
+            "headers": {
+              "set-cookie": {
+                "type": "string",
+                "description": "Session cookie: session:auth=eyJqd3QiO..."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/files/data": {
+      "post": {
+        "tags": ["files"],
+        "summary": "Add customer to records",
+        "description": "",
+        "operationId": "postFile",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "segment1",
+            "in": "body",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": true
+          },
+          {
+            "name": "segment2",
+            "in": "body",
+            "schema": { "type": "boolean" },
+            "required": true
+          },
+          {
+            "name": "segment3",
+            "in": "body",
+            "schema": { "type": "boolean" },
+            "required": true
+          },
+          {
+            "name": "segment4",
+            "in": "body",
+            "schema": { "type": "boolean" },
+            "required": true
+          },
+          {
+            "name": "platformId",
+            "in": "body",
+            "schema": { "type": "integer" },
+            "required": true
+          },
+          {
+            "name": "clientId",
+            "in": "body",
+            "schema": { "type": "integer" },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Customer"
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "get": {
+        "tags": ["files"],
+        "summary": "Returns customers records",
+        "description": "Returns all customers with limit = 10, default sort order = 'asc'",
+        "operationId": "getCustomers",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "response order",
+            "required": false,
+            "enum": ["asc", "desc"]
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "sort field",
+            "required": false,
+            "enum": [
+              "name",
+              "segment1",
+              "segment2",
+              "segment3",
+              "segment4",
+              "platformId",
+              "clientId"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "customers": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "_id": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "segment1": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "segment2": {
+                        "type": "boolean"
+                      },
+                      "segment3": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "segment4": {
+                        "type": "boolean"
+                      },
+                      "platformId": {
+                        "type": "integer",
+                        "default": 1500
+                      },
+                      "clientId": {
+                        "type": "integer",
+                        "default": 1
+                      }
+                    }
+                  }
+                },
+                "totalDocuments": {
+                  "type": "integer",
+                  "default": 1
+                },
+                "limit": {
+                  "type": "integer",
+                  "default": 10
+                },
+                "page": {
+                  "type": "integer",
+                  "default": 1
+                },
+                "totalPages": {
+                  "type": "integer",
+                  "default": 1
+                },
+                "pagingCounter": {
+                  "type": "integer",
+                  "defatult": 1
+                },
+                "hasPrevPage": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "hasNextPage": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "prevPage": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "nextPage": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/files/file": {
+      "post": {
+        "tags": ["files"],
+        "summary": "Uploads a file",
+        "consumes": "multipart/form-data",
+        "operationId": "postCustomers",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "files",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "The file to upload."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "createdBy": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "get": {
+        "tags": ["files"],
+        "summary": "Download file",
+        "description": "",
+        "operationId": "getFile",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": " The name of file to download",
+            "required": true
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "redirect to url for download",
+            "schema": {}
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Customer": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "segment1": {
+          "type": "boolean",
+          "default": false
+        },
+        "segment2": {
+          "type": "boolean"
+        },
+        "segment3": {
+          "type": "boolean",
+          "default": false
+        },
+        "segment4": {
+          "type": "boolean"
+        },
+        "platformId": {
+          "type": "integer",
+          "default": 1500
+        },
+        "clientId": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "xml": {
+        "name": "Customer"
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

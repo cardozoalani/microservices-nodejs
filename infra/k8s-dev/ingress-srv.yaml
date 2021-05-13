@@ -25,3 +25,10 @@ spec:
                 name: files-srv
                 port:
                   number: 3000
+          - pathType: Prefix
+            path: /?(.*)
+            backend:
+              service:
+                name: files-srv
+                port:
+                  number: 3000
