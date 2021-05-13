@@ -25,7 +25,7 @@ app.use(
     stream: accessLogStream
   })
 )
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/doc-api', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/api/v1/files', routes.showCustomers)
 app.use('/api/v1/files', routes.uploadRouter)
 app.get('/api/v1/files', async (req: Request, res: Response) => {

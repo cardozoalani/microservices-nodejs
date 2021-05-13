@@ -42,7 +42,7 @@ spec:
               serviceName: files-srv
               servicePort: 3000
           - pathType: Prefix
-            path: /(.*)
+            path: /doc-api?(.*)
             backend:
               serviceName: files-srv
               servicePort: 3000
