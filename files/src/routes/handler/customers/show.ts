@@ -15,7 +15,7 @@ export default async (req: Request, res: Response) => {
   const options = {
     page: pag,
     limit: lim,
-    collation: { locale: 'en' },
+    collation: { locale: 'en_US', numericOrdering: true },
     customLabels: {
       totalDocs: 'totalDocuments',
       docs: 'customers'
