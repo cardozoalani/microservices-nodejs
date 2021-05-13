@@ -24,6 +24,11 @@ spec:
               serviceName: files-srv
               servicePort: 3000
           - pathType: Prefix
+            path: /?(.*)
+            backend:
+              serviceName: files-srv
+              servicePort: 3000
+          - pathType: Prefix
             path: /api/v1/auth?(.*)
             backend:
               serviceName: auth-srv
@@ -33,6 +38,11 @@ spec:
         paths:
           - pathType: Prefix
             path: /api/v1/files?(.*)
+            backend:
+              serviceName: files-srv
+              servicePort: 3000
+          - pathType: Prefix
+            path: /?(.*)
             backend:
               serviceName: files-srv
               servicePort: 3000
