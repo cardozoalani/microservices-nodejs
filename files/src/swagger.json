@@ -73,18 +73,21 @@
         "produces": ["application/xml", "application/json"],
         "parameters": [
           {
-            "name": "username",
+            "name": "credentials",
             "in": "body",
             "description": "The auth name for login",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "password",
-            "in": "body",
-            "description": "The password for login in clear text",
-            "required": true,
-            "type": "string"
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ],
         "responses": {
