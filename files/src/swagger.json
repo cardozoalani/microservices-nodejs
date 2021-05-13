@@ -124,49 +124,41 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "name",
+            "name": "Fields",
             "in": "body",
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "required": true
+                },
+                "segment1": {
+                  "type": "boolean",
+                  "required": true
+                },
+                "segment2": {
+                  "type": "boolean",
+                  "required": true
+                },
+                "segment3": {
+                  "type": "boolean",
+                  "required": true
+                },
+                "segment4": {
+                  "type": "boolean",
+                  "required": true
+                },
+                "platformId": {
+                  "type": "number",
+                  "required": true
+                },
+                "clientId": {
+                  "type": "number",
+                  "required": true
+                }
+              }
             },
-            "required": true
-          },
-          {
-            "name": "segment1",
-            "in": "body",
-            "schema": {
-              "type": "boolean"
-            },
-            "required": true
-          },
-          {
-            "name": "segment2",
-            "in": "body",
-            "schema": { "type": "boolean" },
-            "required": true
-          },
-          {
-            "name": "segment3",
-            "in": "body",
-            "schema": { "type": "boolean" },
-            "required": true
-          },
-          {
-            "name": "segment4",
-            "in": "body",
-            "schema": { "type": "boolean" },
-            "required": true
-          },
-          {
-            "name": "platformId",
-            "in": "body",
-            "schema": { "type": "integer" },
-            "required": true
-          },
-          {
-            "name": "clientId",
-            "in": "body",
-            "schema": { "type": "integer" },
             "required": true
           }
         ],
