@@ -97,7 +97,7 @@
               "type": "object",
               "properties": {
                 "token": {
-                  "type": "apiKey",
+                  "type": "string",
                   "default": "eyJhbGciOi..."
                 }
               }
