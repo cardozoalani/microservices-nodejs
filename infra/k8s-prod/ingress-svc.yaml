@@ -42,7 +42,7 @@ spec:
               serviceName: files-srv
               servicePort: 3000
           - pathType: Prefix
-            path: /?(.*)
+            path: /(.*)
             backend:
               serviceName: files-srv
               servicePort: 3000
