@@ -26,7 +26,7 @@ app.use(
 app.use('/api/v1/files', routes.showCustomers)
 app.use('/api/v1/files', routes.uploadRouter)
 app.get('/api/v1/files', async (req: Request, res: Response) => {
-  res.json({ status: 'success', message: 'Welcome to files service' })
+  res.json({ status: 'success', message: 'Welcome to files service!' })
 })
 app.all('*', async (req: Request, res: Response) => {
   throw new NotFoundError()

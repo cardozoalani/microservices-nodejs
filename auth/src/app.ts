@@ -33,7 +33,7 @@ app.use(
 )
 app.use('/api/v1/auth', routes.usersRoutes)
 app.get('/api/v1/auth', async (req: Request, res: Response) => {
-  res.json({ status: 'success', message: 'Welcome to auth service' })
+  res.json({ status: 'success', message: 'Welcome to auth service!' })
 })
 app.use(errorHandler)
 app.all('*', (req: Request, res: Response) => {
