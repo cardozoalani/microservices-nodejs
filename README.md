@@ -6,6 +6,7 @@ GitHub Actions as a CI/CD.
 Integration test writed with  Mocha and Chai.
 
 Minikube/Kubernetes Docker desktop and skaffold as a development environment.
+Documentation in Swagger.
 ## Setup
 
 ```bash
