@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: challenge.dev
+    - host: microservices.dev
       http:
         paths:
           - pathType: Prefix
