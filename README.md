@@ -13,7 +13,7 @@ Documentation in Swagger.
 #make sure to have git installed 
 git --version
 
-git pull https://github.com/cardozoalani/services.git
+git clone git@github.com:cardozoalani/microservices-nodejs.git
 # Install minikube or eneabling kubernetes
 
 #make sure you have Docker installed
