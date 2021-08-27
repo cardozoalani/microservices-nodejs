@@ -1,5 +1,11 @@
-## Live demo
-https://intree.com.ar/doc-api
+## Description
+Sample microservice architecture with Node Js and Typescript. Service 'auth' with protocol OAuth 2.0. Service 'file' for upload archives to AWS S3. Database MongoDB with Atlas cloud.
+AWS EKS as an orchestrator. Capsulated with Docker.
+Used Ingress-nginx as a reverse proxy and load balancer.
+GitHub Actions as a CI/CD.
+Integration test writed with  Mocha and Chai.
+
+Minikube/Kubernetes Docker desktop and skaffold as a development environment.
 ## Setup
 
 ```bash
